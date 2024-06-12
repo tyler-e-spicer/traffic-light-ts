@@ -1,14 +1,7 @@
 import { Component } from "react";
-import { TrafficLightState } from "../types";
+import { ClassTrafficLightState } from "../types";
 
-interface ClassTrafficLightState {
-  trafficLight: TrafficLightState;
-}
-
-export class ClassTrafficLight extends Component<
-  Record<string, never>,
-  ClassTrafficLightState
-> {
+export class ClassTrafficLight extends Component {
   state: ClassTrafficLightState = {
     trafficLight: "red",
   };
