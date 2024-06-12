@@ -5,8 +5,11 @@ interface ClassTrafficLightState {
   trafficLight: TrafficLightState;
 }
 
-export class ClassTrafficLight extends Component<void, ClassTrafficLightState> {
-  constructor(props: void) {
+export class ClassTrafficLight extends Component<
+  Record<string, never>,
+  ClassTrafficLightState
+> {
+  constructor(props: Record<string, never>) {
     super(props);
     this.state = {
       trafficLight: "red",
