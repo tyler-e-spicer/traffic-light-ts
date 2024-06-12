@@ -9,12 +9,9 @@ export class ClassTrafficLight extends Component<
   Record<string, never>,
   ClassTrafficLightState
 > {
-  constructor(props: Record<string, never>) {
-    super(props);
-    this.state = {
-      trafficLight: "red",
-    };
-  }
+  state: ClassTrafficLightState = {
+    trafficLight: "red",
+  };
 
   handleLight = () => {
     const { trafficLight } = this.state;
