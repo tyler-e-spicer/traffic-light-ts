@@ -1,17 +1,53 @@
 import { Component } from "react";
+import { TrafficLightState } from "../types";
 
-export class ClassTrafficLight extends Component {
+interface ClassTrafficLightState {
+  trafficLight: TrafficLightState;
+}
+
+export class ClassTrafficLight extends Component<void, ClassTrafficLightState> {
+  constructor(props: void) {
+    super(props);
+    this.state = {
+      trafficLight: "red",
+    };
+  }
+
+  handleLight = () => {
+    const { trafficLight } = this.state;
+    if (trafficLight === "red") {
+      this.setState({ trafficLight: "green" });
+    } else if (trafficLight === "green") {
+      this.setState({ trafficLight: "yellow" });
+    } else if (trafficLight === "yellow") {
+      this.setState({ trafficLight: "red" });
+    }
+  };
+
   render() {
     return (
       <div className="traffic-light-box">
         <h2>Class Traffic Light</h2>
         <div className="traffic-light">
-          {/* Background color can be black | yellow | red | green */}
-          <div className="circle red"></div>
-          <div className="circle black"></div>
-          <div className="circle black"></div>
+          <div
+            className={`circle ${
+              this.state.trafficLight === "red" ? "red" : "black"
+            }`}
+          ></div>
+          <div
+            className={`circle ${
+              this.state.trafficLight === "yellow" ? "yellow" : "black"
+            }`}
+          ></div>
+          <div
+            className={`circle ${
+              this.state.trafficLight === "green" ? "green" : "black"
+            }`}
+          ></div>
         </div>
-        <button className="next-state-button">Next State</button>
+        <button className="next-state-button" onClick={this.handleLight}>
+          Next State
+        </button>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import { TrafficLightState } from "../types";
 export const FunctionalTrafficLight = () => {
   const [trafficLight, setTrafficLight] = useState<TrafficLightState>("red");
 
+  // Can also use a switch statement here.
   const handleLight = () => {
     if (trafficLight === "red") {
       setTrafficLight("green");
